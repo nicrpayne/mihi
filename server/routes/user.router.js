@@ -18,11 +18,16 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 router.post('/register', (req, res, next) => {  
   const username = req.body.username;
   const password = encryptLib.encryptPassword(req.body.password);
+  const firstname = req.body.firstname;
+  const lastname = req.body.lastname;
+  console.log(req.body.clearance_level);
+  const clearance_level = req.body.clearance_level;
 
-  const queryText = 'INSERT INTO "user" (username, password) VALUES ($1, $2) RETURNING id';
-  pool.query(queryText, [username, password])
+  const queryText = 'INSERT INTO "user" (username, firstname, lastname, password, clearance_level) VALUES ($1, $2, $3, $4, $5) RETURNING id';
+  pool.query(queryText, [username, firstname, lastname, password, clearance_level])
     .then(() => res.sendStatus(201))
-    .catch(() => res.sendStatus(500));
+    .catch((error) => {console.log(error) 
+      res.sendStatus(500)});
 });
 
 // Handles login form authenticate/login POST
