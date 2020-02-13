@@ -21,8 +21,32 @@ this.props.dispatch ({type: 'FETCH_ENTRIES'})
     render() {
         return (
             <div>
+                <ul>
+                    {this.props.reduxState.setEntriesReducer.map(entry =>
+                        <li key={entry.id}>
+                            <div>
+                                <p>{entry.location}</p>
+                                <p>{entry.date}</p>
+                                <p>{entry.primary_emotion_id}</p>
+                                <p>{entry.secondary_emotion_id}</p>
+                                <p>{entry.tertiary_emotion_id}</p>
+                                <p>{entry.journal_text}</p>
+
+                                {/* <img src={book.image_url} /> */}
+                                {/* {this.props.reduxStore.user.id === book.user_id ?
+                                    <button onClick={() => this.props.dispatch(
+                                        {
+                                            type: 'DELETE_BOOK',
+                                            payload: book
+                                        })}>DELETE BOOK</button> :
+                                    <p></p>
+                                } */}
+                            </div>
+                        </li>
+                    )}
+                </ul>
             <p>
-                {JSON.stringify(this.props.state.setEntriesReducer)}
+                {/* {JSON.stringify(this.props.state.setEntriesReducer)} */}
             </p>
                 <center>
                     <button
@@ -42,8 +66,8 @@ this.props.dispatch ({type: 'FETCH_ENTRIES'})
 // Instead of taking everything from state, we just want the error messages.
 // if you wanted you could write this code like this:
 // const mapStateToProps = ({errors}) => ({ errors });
-const mapStateToProps = state => ({
-   state
+const mapStateToProps = reduxState => ({
+   reduxState
 });
 
 export default connect(mapStateToProps)(JournalEntries);
