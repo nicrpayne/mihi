@@ -18,6 +18,7 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import RegisterPage from '../RegisterPage/RegisterPage'
 import JournalEntries from '../JournalEntries/JournalEntries'
+import JournalEntryForm from '../JournalEntryForm/JournalEntryForm'
 
 import './App.css';
 
@@ -50,6 +51,11 @@ class App extends Component {
               exact
               path="/entries"
               component={JournalEntries}
+            />
+            <Route
+              exact
+              path="/form"
+              component={JournalEntryForm}
             />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
