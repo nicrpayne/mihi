@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-// const mapStateToProps = reduxState => ({
-//     reduxState
-// })
 
-class JournalEntryForm extends Component {
+
+class PrimaryEmotionList extends Component {
 
     state = {
-        newEntry: {
-            date: '',
-            location: '',
-            primaryEmotionId: '',
-            secondaryEm
+        primarySelection: {
+            emotionId: '',
+           
         }
     }
 
     handleChangeFor = (propertyName, event) => {
         console.log(event.target.value)
         this.setState({
-            newEntry: {
-                ...this.state.newBook,
+            emotionId: {
+                ...this.state.primarySelection,
                 [propertyName]: event.target.value
             }
         })
@@ -29,8 +25,8 @@ class JournalEntryForm extends Component {
     handleClick = (event) => {
         event.preventDefault()
         this.props.dispatch({
-            type: 'POST_BOOKS',
-            payload: this.state.newBook
+            type: 'STORE_PRIMARY_ID',
+            payload: this.state.primarySelection
         })
     }
 
@@ -48,4 +44,8 @@ class JournalEntryForm extends Component {
     }
 }
 
-export default connect(mapStateToProps)(BookForm)
+const mapStateToProps = reduxState => ({
+    reduxState
+})
+
+export default connect(mapStateToProps)(PrimaryEmotionList)
