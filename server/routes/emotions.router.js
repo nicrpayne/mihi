@@ -13,19 +13,25 @@ router.get('/', (req, res) => {
         FROM "tertiary_emotions_list"`
 
 
-    const queryText = `SELECT jsonb_build_object('secondary_tertiary_emotions', "foo".secondary_emotion_id, 'tertiary_emotions', jsonb_object_agg("foo".name, "foo".emotion), 'secondary_name', "secondary_emotions_list".name) AS emotion 
-    FROM (${tertiaryEmotions}) AS foo
-    JOIN "secondary_emotions_list"
-    ON "secondary_emotions_list".id = foo.secondary_emotion_id
-    GROUP BY "foo".secondary_emotion_id, "secondary_emotions_list".name`;
+    const queryText = `SELECT jsonb_build_object('secondary_tertiary_emotions', "foo".secondary_emotion_id, 'tertiary_emotions', 
+        jsonb_object_agg("foo".name, "foo".emotion), 'secondary_name', "secondary_emotions_list".name, 'secondary_color', 
+        "secondary_emotions_list".color) AS emotion, 
+        "secondary_emotions_list".primary_emotion_id
+        FROM (${tertiaryEmotions}) AS foo
+        JOIN "secondary_emotions_list"
+        ON "secondary_emotions_list".id = foo.secondary_emotion_id
+        GROUP BY "foo".secondary_emotion_id, "secondary_emotions_list".name, "secondary_emotions_list".primary_emotion_id, 
+        "secondary_emotions_list".color`;
+
+    const completeQueryText = `SELECT "primary_emotions_list".name, jsonb_agg("bar".emotion) FROM (${queryText}) AS bar
+        JOIN "primary_emotions_list"
+        ON "bar".primary_emotion_id = "primary_emotions_list".id
+        GROUP BY "primary_emotions_list".name`
 
         //bundle up secondary with tertiary and JOIN primary
-
-    
-
     
     console.log('in emotions.router GET')
-    pool.query(queryText)
+    pool.query(completeQueryText)
         .then(result => {
             console.log(result.rows)
             res.send(result.rows)
