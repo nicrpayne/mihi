@@ -5,6 +5,10 @@ import { connect } from 'react-redux'
 
 class PrimaryEmotionList extends Component {
 
+    componentDidMount() {
+        this.props.dispatch({ type: 'FETCH_EMOTIONS' })
+    };
+
     state = {
         primarySelection: {
             emotionId: '',
@@ -24,21 +28,37 @@ class PrimaryEmotionList extends Component {
 
     handleClick = (event) => {
         event.preventDefault()
+        let field = this.state.feels;
+        
+        if (field === "") {
+            alert("Please pick an emotion to move ahead")
+        } else {
+            this.props.history.push('/SecondaryEmotion')
         this.props.dispatch({
             type: 'STORE_PRIMARY_ID',
             payload: this.state.primarySelection
+
+
         })
     }
+}
 
     render() {
         return (
             <form onSubmit={this.handleClick}>
-                <label> Add Book </label>
+                <div>
+                    <p>
+
+
+                    </p>
+
+                </div>
+                {/* <label> Add Book </label>
                 <input value={this.state.newBook.description} onChange={(event) => this.handleChangeFor('description', event)} />
                 <br />
                 <label> img url </label>
                 <input value={this.state.newBook.image_url} onChange={(event) => this.handleChangeFor('image_url', event)} />
-                <input type="submit" onClick={this.handleClick} />
+                <input type="submit" onClick={this.handleClick} /> */}
             </form>
         )
     }

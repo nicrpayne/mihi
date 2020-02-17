@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import RegisterPage from '../RegisterPage/RegisterPage'
 import JournalEntries from '../JournalEntries/JournalEntries'
 import JournalEntryForm from '../JournalEntryForm/JournalEntryForm'
+import PrimaryEmotionList from '../PrimaryEmotionSelector/PrimaryEmotionSelector'
 
 import './App.css';
 
@@ -65,6 +66,11 @@ class App extends Component {
               exact
               path="/home"
               component={UserPage}
+            />
+            <ProtectedRoute
+              exact
+              path="/primary"
+              component={PrimaryEmotionList}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
