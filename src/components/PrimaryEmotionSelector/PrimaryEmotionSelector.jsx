@@ -50,7 +50,7 @@ class PrimaryEmotionSelector extends Component {
             <form onSubmit={this.handleClick}>
                 <div>
                     <p>
-
+                    {JSON.stringify(this.props.reduxState.emotionListReducer)}
 
                     </p>
 
