@@ -41,14 +41,32 @@ class SecondaryEmotionSelector extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleClick}>
-                <label> Add Book </label>
-                <input value={this.state.newBook.description} onChange={(event) => this.handleChangeFor('description', event)} />
-                <br />
-                <label> img url </label>
-                <input value={this.state.newBook.image_url} onChange={(event) => this.handleChangeFor('image_url', event)} />
-                <input type="submit" onClick={this.handleClick} />
-            </form>
+            <div>
+                {/* <p>{JSON.stringify(this.props.reduxState.emotionListReducer)}</p> */}
+                <ul>
+                    {this.props.reduxState.emotionListReducer.map(emotion =>
+                        <li key={emotion.id}>
+                            {/* <p>{emotion.name}</p> */}
+                            {/* <p>{JSON.stringify(emotion.jsonb_agg)}</p> */}
+                            {emotion.jsonb_agg.map(secondaryEmotion =>
+                                <li key={secondaryEmotion.id}>
+                                    <p>{secondaryEmotion.secondary_name}</p>
+                                </li>
+
+                            )}
+
+                        </li>
+                    )}
+
+
+
+
+
+
+
+                </ul>
+
+            </div>
         )
     }
 }

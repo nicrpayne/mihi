@@ -9,7 +9,7 @@ class PrimaryEmotionSelector extends Component {
     componentDidMount() {
         console.log('in PrimaryEmotionsList - ComponentDidMount');
         
-        this.props.dispatch({ type: 'FETCH_EMOTIONS' })
+        this.props.dispatch({ type: 'FETCH_PRIMARY_EMOTIONS' })
     };
 
     state = {
@@ -29,22 +29,13 @@ class PrimaryEmotionSelector extends Component {
         })
     }
 
-    handleClick = (event) => {
-        event.preventDefault()
-        let field = this.state.feels;
+    handleClick = (id) => {
+        // event.preventDefault()
         
-        if (field === "") {
-            alert("Please pick an emotion to move ahead")
-        } else {
-            this.props.history.push('/SecondaryEmotion')
-        this.props.dispatch({
-            type: 'STORE_PRIMARY_ID',
-            payload: this.state.primarySelection
-
-
-        })
+        this.props.history.push(`/emotions2`)
+      
     }
-}
+
 
 
     render() {
@@ -54,14 +45,14 @@ class PrimaryEmotionSelector extends Component {
                 <ul>
                   {this.props.reduxState.emotionListReducer.map(emotion =>
                     <li key={emotion.id}>
-                            <p>{emotion.name}</p>
+                            <p onClick={this.handleClick} >{emotion.name}</p>
                             {/* <p>{JSON.stringify(emotion.jsonb_agg)}</p> */}
-                            {emotion.jsonb_agg.map(secondaryEmotion =>
+                            {/* {emotion.jsonb_agg.map(secondaryEmotion =>
                             <li key={secondaryEmotion.id}>
                                 <p>{secondaryEmotion.secondary_name}</p>
                                 </li>
                                 
-                                )}
+                                )} */}
                              
                       </li>
                     )}

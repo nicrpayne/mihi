@@ -6,10 +6,11 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-    //variable is 
-    let queryText
-    
-    console.log('in emotions.router GET')
+    //variable is equal 
+    let queryText = 
+
+
+    console.log('in secondary.emotions.router GET')
     pool.query(queryText)
         .then(result => {
             console.log(result.rows)

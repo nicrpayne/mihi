@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 // fetch Saga: will be fired on "FETCH_EMOTIONS" in component didmount
 function* emotionListSaga() {
-    yield takeLatest('FETCH_EMOTIONS', fetchEmotions)
+    yield takeLatest('FETCH_PRIMARY_EMOTIONS', fetchEmotions)
 }
 
 function* fetchEmotions() {

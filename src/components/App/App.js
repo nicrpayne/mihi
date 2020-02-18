@@ -79,7 +79,7 @@ class App extends Component {
             they will see the info page instead. */}
             <ProtectedRoute
               exact
-              path="/emotions"
+              path="/emotions/"
               component={PrimaryEmotionSelector}
             />
             <ProtectedRoute
