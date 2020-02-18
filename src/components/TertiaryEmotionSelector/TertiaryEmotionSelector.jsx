@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 
 
-class PrimaryEmotionList extends Component {
+class TertiaryEmotionSelector extends Component {
 
     state = {
         primarySelection: {
@@ -57,4 +57,4 @@ const mapStateToProps = reduxState => ({
     reduxState
 })
 
-export default connect(mapStateToProps)(PrimaryEmotionList)
+export default connect(mapStateToProps)(TertiaryEmotionSelector)

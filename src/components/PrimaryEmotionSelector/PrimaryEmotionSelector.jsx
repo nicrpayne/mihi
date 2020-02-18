@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+// import { array } from 'prop-types';
 
 
 
@@ -45,6 +46,7 @@ class PrimaryEmotionSelector extends Component {
     }
 }
 
+
     render() {
         return (
             <div>
@@ -53,9 +55,17 @@ class PrimaryEmotionSelector extends Component {
                   {this.props.reduxState.emotionListReducer.map(emotion =>
                     <li key={emotion.id}>
                             <p>{emotion.name}</p>
-                            <p>{JSON.stringify(emotion.jsonb_agg)}</p>
+                            {/* <p>{JSON.stringify(emotion.jsonb_agg)}</p> */}
+                            {emotion.jsonb_agg.map(secondaryEmotion =>
+                            <li key={secondaryEmotion.id}>
+                                <p>{secondaryEmotion.secondary_name}</p>
+                                </li>
+                                
+                                )}
+                             
                       </li>
                     )}
+                    
                             
                    
                 
@@ -70,14 +80,6 @@ class PrimaryEmotionSelector extends Component {
 
                    
 }
-
-
-
-
-            
-                
-            
-    
 
 const mapStateToProps = reduxState => ({
     reduxState

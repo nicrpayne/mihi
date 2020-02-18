@@ -1,4 +1,4 @@
-const emotionsListReducer = (state = [{}], action) => {
+const emotionsListReducer = (state = [], action) => {
     console.log('in setEmotions', action.payload);
 
     switch (action.type) {
