@@ -55,21 +55,11 @@ class PrimaryEmotionSelector extends Component {
                                 )} */}
                              
                       </li>
-                    )}
-                    
-                            
-                   
-                
-
-
-                    
+                    )}  
                 </ul>
-           
             </div>
         )
-    }
-
-                   
+    }                
 }
 
 const mapStateToProps = reduxState => ({

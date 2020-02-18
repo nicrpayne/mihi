@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
     //variable is equal 
-    let queryText = 
+    let queryText = `SELECT * FROM "secondary_emotions_list";`;
 
 
     console.log('in secondary.emotions.router GET')

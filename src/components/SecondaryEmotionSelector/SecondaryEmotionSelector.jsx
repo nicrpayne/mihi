@@ -5,8 +5,15 @@ import { connect } from 'react-redux'
 
 class SecondaryEmotionSelector extends Component {
 
+    componentDidMount() {
+        console.log('in SecondaryEmotionSelector - ComponentDidMount');
+
+        this.props.dispatch({ type: 'FETCH_SECONDARY_EMOTIONS' })
+    };
+
+
     state = {
-        primarySelection: {
+        secondarySelection: {
             emotionId: '',
 
         }
@@ -16,54 +23,36 @@ class SecondaryEmotionSelector extends Component {
         console.log(event.target.value)
         this.setState({
             emotionId: {
-                ...this.state.primarySelection,
+                ...this.state.secondarySelection,
                 [propertyName]: event.target.value
             }
         })
     }
 
     handleClick = (event) => {
-        event.preventDefault()
-        let field = this.state.feels;
-
-        if (field === "") {
-            alert("Please pick an emotion to move ahead")
-        } else {
-            this.props.history.push('/SecondaryEmotion')
-            this.props.dispatch({
-                type: 'STORE_PRIMARY_ID',
-                payload: this.state.primarySelection
+        // event.preventDefault()
+        
+            this.props.history.push('/emotions3')
+            // this.props.dispatch({
+            //     type: 'FETCH_SECONDARY_EMOTIONS',
+            //     payload: this.state.secondarySelection
 
 
-            })
+            // })
         }
-    }
+    
 
     render() {
         return (
             <div>
-                {/* <p>{JSON.stringify(this.props.reduxState.emotionListReducer)}</p> */}
+                {/* <p>{JSON.stringify(this.props.reduxState.secondaryEmotionsListReducer)}</p> */}
                 <ul>
-                    {this.props.reduxState.emotionListReducer.map(emotion =>
+                    {this.props.reduxState.secondaryEmotionsListReducer.map(emotion =>
                         <li key={emotion.id}>
-                            {/* <p>{emotion.name}</p> */}
-                            {/* <p>{JSON.stringify(emotion.jsonb_agg)}</p> */}
-                            {emotion.jsonb_agg.map(secondaryEmotion =>
-                                <li key={secondaryEmotion.id}>
-                                    <p>{secondaryEmotion.secondary_name}</p>
-                                </li>
-
-                            )}
-
+                            <p onClick={this.handleClick} >{emotion.name}</p>
+                    
                         </li>
                     )}
-
-
-
-
-
-
-
                 </ul>
 
             </div>

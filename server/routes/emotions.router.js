@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
     //variable is 
-    let queryText
+    let queryText = `SELECT * FROM "primary_emotions_list";`;
     
     console.log('in emotions.router GET')
     pool.query(queryText)
