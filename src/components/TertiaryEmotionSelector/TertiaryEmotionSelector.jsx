@@ -5,8 +5,15 @@ import { connect } from 'react-redux'
 
 class TertiaryEmotionSelector extends Component {
 
+    componentDidMount() {
+        console.log('in TertiaryEmotionSelector - ComponentDidMount');
+
+        this.props.dispatch({ type: 'FETCH_TERTIARY_EMOTIONS' })
+    };
+
+
     state = {
-        primarySelection: {
+        secondarySelection: {
             emotionId: '',
 
         }
@@ -16,39 +23,39 @@ class TertiaryEmotionSelector extends Component {
         console.log(event.target.value)
         this.setState({
             emotionId: {
-                ...this.state.primarySelection,
+                ...this.state.tertiarySelection,
                 [propertyName]: event.target.value
             }
         })
     }
 
     handleClick = (event) => {
-        event.preventDefault()
-        let field = this.state.feels;
+        // event.preventDefault()
 
-        if (field === "") {
-            alert("Please pick an emotion to move ahead")
-        } else {
-            this.props.history.push('/SecondaryEmotion')
-            this.props.dispatch({
-                type: 'STORE_PRIMARY_ID',
-                payload: this.state.primarySelection
+        this.props.history.push('/emotions3')
+        // this.props.dispatch({
+        //     type: 'FETCH_SECONDARY_EMOTIONS',
+        //     payload: this.state.secondarySelection
 
 
-            })
-        }
+        // })
     }
+
 
     render() {
         return (
-            <form onSubmit={this.handleClick}>
-                <label> Add Book </label>
-                <input value={this.state.newBook.description} onChange={(event) => this.handleChangeFor('description', event)} />
-                <br />
-                <label> img url </label>
-                <input value={this.state.newBook.image_url} onChange={(event) => this.handleChangeFor('image_url', event)} />
-                <input type="submit" onClick={this.handleClick} />
-            </form>
+            <div>
+                {/* <p>{JSON.stringify(this.props.reduxState.secondaryEmotionsListReducer)}</p> */}
+                <ul>
+                    {this.props.reduxState.tertiaryEmotionsListReducer.map(emotion =>
+                        <li key={emotion.id}>
+                            <p onClick={this.handleClick} >{emotion.name}</p>
+
+                        </li>
+                    )}
+                </ul>
+
+            </div>
         )
     }
 }

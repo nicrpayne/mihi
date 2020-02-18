@@ -14,6 +14,7 @@ const entriesRouter = require('./routes/entries.router');
 const entryRouter = require('./routes/entry.router')
 const emotionsRouter = require('./routes/emotions.router')
 const secondaryEmotionsRouter = require('./routes/secondary.emotions.router')
+const tertiaryEmotionsRouter = require('./routes/tertiary.emotions.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -32,6 +33,7 @@ app.use('/api/entries', entriesRouter);
 app.use('/api/entry', entryRouter);
 app.use('/api/emotions', emotionsRouter);
 app.use('/api/secondaryemotions', secondaryEmotionsRouter)
+app.use('/api/tertiaryemotions', tertiaryEmotionsRouter)
 
 // Serve static files
 app.use(express.static('build'));
