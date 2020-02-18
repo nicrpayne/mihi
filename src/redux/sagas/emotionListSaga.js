@@ -1,23 +1,24 @@
-// import axios from 'axios';
-// import { put, takeEvery } from 'redux-saga/effects';
+import axios from 'axios';
+import { put, takeLatest } from 'redux-saga/effects';
 
-// // fetch Saga: will be fired on "FETCH_ENTRIES" in component didmount
-// function* journalEntriesSaga() {
-//     yield takeEvery('FETCH_ENTRIES', fetchEntries)
-// }
+// fetch Saga: will be fired on "FETCH_EMOTIONS" in component didmount
+function* emotionListSaga() {
+    yield takeLatest('FETCH_EMOTIONS', fetchEmotions)
+}
 
-// function* fetchEntries() {
-//     console.log('in fetchEntries');
+function* fetchEmotions() {
+    console.log('in fetchEmotions');
 
-//     try {
-//         //makes axios request to server for journal entries
-//         const response = yield axios.get('/api/entries');
+    try {
+        //makes axios request to server for emotions list
+        const response = yield axios.get('/api/emotions');
 
-//         yield put({ type: 'SET_ENTRIES', payload: response.data });
-//     } catch (error) {
-//         console.log('entries GET request failed', error);
-//     }
-// }
+        yield put({ type: 'SET_EMOTIONS', payload: response.data })
+        console.log(response.data);
+    } catch (error) {
+        console.log('emotions GET request failed', error);
+    }
+}
 
 
-// export default journalEntriesSaga;
+export default emotionListSaga;

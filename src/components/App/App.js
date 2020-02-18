@@ -19,7 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import RegisterPage from '../RegisterPage/RegisterPage'
 import JournalEntries from '../JournalEntries/JournalEntries'
 import JournalEntryForm from '../JournalEntryForm/JournalEntryForm'
-import PrimaryEmotionList from '../PrimaryEmotionSelector/PrimaryEmotionSelector'
+import PrimaryEmotionSelector from '../PrimaryEmotionSelector/PrimaryEmotionSelector'
 
 import './App.css';
 
@@ -58,6 +58,11 @@ class App extends Component {
               path="/form"
               component={JournalEntryForm}
             />
+            <Route
+              exact
+              path="/emotions"
+              component={PrimaryEmotionSelector}
+            />
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/home will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
@@ -67,11 +72,11 @@ class App extends Component {
               path="/home"
               component={UserPage}
             />
-            <ProtectedRoute
+            {/* <ProtectedRoute
               exact
               path="/primary"
               component={PrimaryEmotionList}
-            />
+            /> */}
             {/* This works the same as the other protected route, except that if the user is logged in,
             they will see the info page instead. */}
             <ProtectedRoute

@@ -3,9 +3,11 @@ import { connect } from 'react-redux'
 
 
 
-class PrimaryEmotionList extends Component {
+class PrimaryEmotionSelector extends Component {
 
     componentDidMount() {
+        console.log('in PrimaryEmotionsList - ComponentDidMount');
+        
         this.props.dispatch({ type: 'FETCH_EMOTIONS' })
     };
 
@@ -68,4 +70,4 @@ const mapStateToProps = reduxState => ({
     reduxState
 })
 
-export default connect(mapStateToProps)(PrimaryEmotionList)
+export default connect(mapStateToProps)(PrimaryEmotionSelector)

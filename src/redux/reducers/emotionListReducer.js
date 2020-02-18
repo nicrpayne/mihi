@@ -1,14 +1,16 @@
-// const loginMode = (state = 'login', action) => {
-//     switch (action.type) {
-//       case 'SET_TO_LOGIN_MODE':
-//         return 'login';
-//       case 'SET_TO_REGISTER_MODE':
-//         return 'register';
-//       default:
-//         return state;
-//     }
-//   };
+const emotionsListReducer = (state = [], action) => {
+    console.log('in setEmotions', action.payload);
 
-// // loginMode will be on the redux state at:
-// // state.loginMode
-//   export default loginMode;
+    switch (action.type) {
+        case 'SET_EMOTIONS':
+            return action.payload;
+
+        default:
+            return state;
+    }
+
+};
+
+// loginMode will be on the redux state at:
+// state.loginMode
+export default emotionsListReducer;

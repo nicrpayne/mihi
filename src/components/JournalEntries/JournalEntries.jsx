@@ -11,6 +11,7 @@ class JournalEntries extends Component {
 
 componentDidMount() {
 this.props.dispatch ({type: 'FETCH_ENTRIES'})
+   
 };
     // handleInputChangeFor = propertyName => (event) => {
     //     this.setState({
