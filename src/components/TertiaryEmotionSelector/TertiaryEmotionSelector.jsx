@@ -7,11 +7,11 @@ class TertiaryEmotionSelector extends Component {
 
   
 
-    handleClick = (id) => {
+    handleClick = (emotion) => {
        
         this.props.dispatch({
             type: 'TERTIARY_EMOTION_ENTRY',
-            payload: id
+            payload: emotion
         })
 
         this.props.history.push('/form')   
@@ -25,7 +25,7 @@ class TertiaryEmotionSelector extends Component {
                 <ul>
                     {this.props.reduxState.tertiaryEmotionsListReducer.map(emotion =>
                         <li key={emotion.id}>
-                            <p onClick={() => { this.handleClick(emotion.id)}}>{emotion.name}</p>
+                            <p onClick={() => { this.handleClick(emotion)}}>{emotion.name}</p>
 
                         </li>
                     )}

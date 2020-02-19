@@ -19,19 +19,19 @@ class PrimaryEmotionSelector extends Component {
 
     
 
-    handleClick = (id) => {
-        console.log('primary emotion clicked with id: ', id);
+    handleClick = (emotion) => {
+        // console.log('primary emotion clicked with id: ', emotion);
 
         this.props.dispatch({
             type: 'FETCH_SECONDARY_EMOTIONS',
-            payload: id
+            payload: emotion.id
             
         })
         this.props.dispatch({
             type: 'PRIMARY_EMOTION_ENTRY',
-            payload: id
+            payload: emotion
         })
-        this.props.history.push(`/emotions2/${id}`);
+        this.props.history.push(`/emotions2/${emotion.id}`);
     }
 
 
@@ -44,7 +44,7 @@ class PrimaryEmotionSelector extends Component {
                   {this.props.reduxState.emotionListReducer.map(emotion =>
                     <li key={emotion.id}>
                            
-                          <p onClick={() => {this.handleClick(emotion.id)}}>{emotion.name}</p>
+                          <p onClick={() => {this.handleClick(emotion)}}>{emotion.name}</p>
                            
                              
                       </li>

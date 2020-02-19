@@ -36,22 +36,27 @@ class JournalEntryForm extends Component {
     render() {
         return (
             <div>
-            <form onSubmit={this.handleClick}>
-                <label> Add Entry </label>
-                <input value={this.state.newEntry.text} onChange={(event) => this.handleChangeFor('text', event)} />
-                <br />
-                <label> Date </label>
-                <input value={this.state.newEntry.date} onChange={(event) => this.handleChangeFor('date', event)} />
-                <br />
-                <label> Location </label>
-                <input value={this.state.newEntry.location} onChange={(event) => this.handleChangeFor('location', event)} />
-                <input type="submit" onClick={this.handleClick} />
-            </form>
-           <>
-           <ul>
-                        <li>{JSON.stringify(this.props.reduxState.displayEmotionEntriesReducer )}</li>
-           </ul>
-           </>
+                <form onSubmit={this.handleClick}>
+                    <label> Add Entry </label>
+                    <input value={this.state.newEntry.text} onChange={(event) => this.handleChangeFor('text', event)} />
+                    <br />
+                    <label> Date </label>
+                    <input value={this.state.newEntry.date} onChange={(event) => this.handleChangeFor('date', event)} />
+                    <br />
+                    <label> Location </label>
+                    <input value={this.state.newEntry.location} onChange={(event) => this.handleChangeFor('location', event)} />
+                    <input type="submit" onClick={this.handleClick} />
+                </form>
+
+                <ul>
+                    <li>{this.props.reduxState.displayEmotionEntriesReducer.primary.name}</li>
+                    <li>{this.props.reduxState.displayEmotionEntriesReducer.primary.color}</li>
+                    <li>{this.props.reduxState.displayEmotionEntriesReducer.secondary.name}</li>
+                    <li>{this.props.reduxState.displayEmotionEntriesReducer.secondary.color}</li>
+                    <li>{this.props.reduxState.displayEmotionEntriesReducer.tertiary.name}</li>
+                    <li>{this.props.reduxState.displayEmotionEntriesReducer.tertiary.color}</li>
+                </ul>
+
             </div>
         )
     }
