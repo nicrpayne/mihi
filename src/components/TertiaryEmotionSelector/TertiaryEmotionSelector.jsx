@@ -5,22 +5,7 @@ import { connect } from 'react-redux'
 
 class TertiaryEmotionSelector extends Component {
 
-    state = {
-        secondarySelection: {
-            emotionId: '',
 
-        }
-    }
-
-    handleChangeFor = (propertyName, event) => {
-        console.log(event.target.value)
-        this.setState({
-            emotionId: {
-                ...this.state.tertiarySelection,
-                [propertyName]: event.target.value
-            }
-        })
-    }
 
     handleClick = (id) => {
         // event.preventDefault()

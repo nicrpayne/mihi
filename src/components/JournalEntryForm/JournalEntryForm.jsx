@@ -35,6 +35,7 @@ class JournalEntryForm extends Component {
 
     render() {
         return (
+            <div>
             <form onSubmit={this.handleClick}>
                 <label> Add Entry </label>
                 <input value={this.state.newEntry.text} onChange={(event) => this.handleChangeFor('text', event)} />
@@ -46,8 +47,18 @@ class JournalEntryForm extends Component {
                 <input value={this.state.newEntry.location} onChange={(event) => this.handleChangeFor('location', event)} />
                 <input type="submit" onClick={this.handleClick} />
             </form>
+           <>
+           <ul>
+               <li>{JSON.stringify(this.props.reduxState.emotionListReducer)}</li>
+           </ul>
+           </>
+            </div>
         )
     }
 }
 
-export default connect()(JournalEntryForm)
+const mapStateToProps = reduxState => ({
+    reduxState
+})
+
+export default connect(mapStateToProps)(JournalEntryForm)

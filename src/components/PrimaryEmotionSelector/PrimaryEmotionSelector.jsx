@@ -12,22 +12,7 @@ class PrimaryEmotionSelector extends Component {
         this.props.dispatch({ type: 'FETCH_PRIMARY_EMOTIONS' })
     };
 
-    state = {
-        primarySelection: {
-            emotionId: '',
-           
-        }
-    }
-
-    // handleChangeFor = (propertyName, event) => {
-    //     console.log(event.target.value)
-    //     this.setState({
-    //         emotionId: {
-    //             ...this.state.primarySelection,
-    //             [propertyName]: event.target.value
-    //         }
-    //     })
-    // }
+    
 
     handleClick = (id) => {
         // event.preventDefault()

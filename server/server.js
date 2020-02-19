@@ -30,7 +30,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/entries', entriesRouter);
-app.use('/api/entry', entryRouter);
+app.use('/api/form', entryRouter);
 app.use('/api/emotions', emotionsRouter);
 app.use('/api/emotions2', secondaryEmotionsRouter)
 app.use('/api/emotions3', tertiaryEmotionsRouter)
