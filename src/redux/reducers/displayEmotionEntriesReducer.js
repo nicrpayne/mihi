@@ -1,6 +1,6 @@
 
 
-const displayEmotionEntriesReducer = (state = {}, action) => {
+const displayEmotionEntriesReducer = (state = {primary: '', secondary: '', tertiary: ''}, action) => {
     // console.log('in displayEmotionEntriesReducer', action.payload);
     if (action.type === 'PRIMARY_EMOTION_ENTRY') {
         //whatever is returned will be saved in redux

@@ -34,7 +34,9 @@ class JournalEntryForm extends Component {
     }
 
     render() {
+        // let emotionsReducer = this.props.reduxState.displayEmotionEntriesReducer
         return (
+            
             <div>
                 <form onSubmit={this.handleClick}>
                     <label> Add Entry </label>

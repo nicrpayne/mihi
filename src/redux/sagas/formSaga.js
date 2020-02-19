@@ -8,7 +8,7 @@ function* formSaga() {
 function* postEntry(action) {
     console.log('in postEntrysaga', action.payload)
     let response = yield axios.post(`/api/entry`, action.payload)
-    yield put({ type: 'SET_ENTRIES', payload: response })
+    
 }
 
 // function* fetchBooks() {
