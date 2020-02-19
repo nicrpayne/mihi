@@ -1,5 +1,5 @@
 const setEntries = (state = [], action) => {
-    console.log('in setEntries', action.payload);
+    // console.log('in setEntries', action.payload);
 
     switch (action.type) {
         case 'SET_ENTRIES':

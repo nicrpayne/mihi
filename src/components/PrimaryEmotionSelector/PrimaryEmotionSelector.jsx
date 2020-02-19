@@ -19,21 +19,25 @@ class PrimaryEmotionSelector extends Component {
         }
     }
 
-    handleChangeFor = (propertyName, event) => {
-        console.log(event.target.value)
-        this.setState({
-            emotionId: {
-                ...this.state.primarySelection,
-                [propertyName]: event.target.value
-            }
-        })
-    }
+    // handleChangeFor = (propertyName, event) => {
+    //     console.log(event.target.value)
+    //     this.setState({
+    //         emotionId: {
+    //             ...this.state.primarySelection,
+    //             [propertyName]: event.target.value
+    //         }
+    //     })
+    // }
 
     handleClick = (id) => {
         // event.preventDefault()
-        
-        this.props.history.push(`/emotions2`)
-      
+        // console.log('primary emotion clicked with id: ', id);
+        this.props.dispatch({
+            type: 'FETCH_SECONDARY_EMOTIONS',
+            payload: id
+            
+        })
+        this.props.history.push(`/emotions2/${id}`);
     }
 
 
@@ -45,7 +49,7 @@ class PrimaryEmotionSelector extends Component {
                 <ul>
                   {this.props.reduxState.emotionListReducer.map(emotion =>
                     <li key={emotion.id}>
-                            <p onClick={this.handleClick} >{emotion.name}</p>
+                            <p onClick={() => this.handleClick(emotion.id)} >{emotion.name}</p>
                             {/* <p>{JSON.stringify(emotion.jsonb_agg)}</p> */}
                             {/* {emotion.jsonb_agg.map(secondaryEmotion =>
                             <li key={secondaryEmotion.id}>

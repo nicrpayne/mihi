@@ -5,13 +5,14 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
     //variable is equal 
-    let queryText = `SELECT * FROM "secondary_emotions_list";`;
+    let queryText = `SELECT * FROM "secondary_emotions_list"
+                        WHERE "primary_emotion_id"=$1;`;
 
 
-    console.log('in secondary.emotions.router GET')
-    pool.query(queryText)
+    console.log('in secondary.emotions.router GET', req.params.id)
+    pool.query(queryText, [req.params.id])
         .then(result => {
             console.log(result.rows)
             res.send(result.rows)

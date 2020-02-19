@@ -5,13 +5,6 @@ import { connect } from 'react-redux'
 
 class SecondaryEmotionSelector extends Component {
 
-    componentDidMount() {
-        console.log('in SecondaryEmotionSelector - ComponentDidMount');
-
-        this.props.dispatch({ type: 'FETCH_SECONDARY_EMOTIONS' })
-    };
-
-
     state = {
         secondarySelection: {
             emotionId: '',
@@ -34,8 +27,8 @@ class SecondaryEmotionSelector extends Component {
         
             this.props.history.push('/emotions3')
             // this.props.dispatch({
-            //     type: 'FETCH_SECONDARY_EMOTIONS',
-            //     payload: this.state.secondarySelection
+            //     type: 'FETCH_TERTIARY_EMOTIONS',
+            //     payload: this.state.secondarySelection.emotionId
 
 
             // })
@@ -49,12 +42,12 @@ class SecondaryEmotionSelector extends Component {
                 <ul>
                     {this.props.reduxState.secondaryEmotionsListReducer.map(emotion =>
                         <li key={emotion.id}>
-                            <p onClick={this.handleClick} >{emotion.name}</p>
-                    
+                            <p onClick={() => this.handleClick(emotion.id)} >{emotion.name}</p>
+                            
+
                         </li>
                     )}
                 </ul>
-
             </div>
         )
     }

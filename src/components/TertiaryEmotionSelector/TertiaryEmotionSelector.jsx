@@ -5,11 +5,11 @@ import { connect } from 'react-redux'
 
 class TertiaryEmotionSelector extends Component {
 
-    componentDidMount() {
-        console.log('in TertiaryEmotionSelector - ComponentDidMount');
+    // componentDidMount() {
+    //     console.log('in TertiaryEmotionSelector - ComponentDidMount');
 
-        this.props.dispatch({ type: 'FETCH_TERTIARY_EMOTIONS' })
-    };
+    //     this.props.dispatch({ type: 'FETCH_TERTIARY_EMOTIONS' })
+    // };
 
 
     state = {

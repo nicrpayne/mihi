@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     //variable is 
     let queryText = `SELECT * FROM "primary_emotions_list";`;
     
-    console.log('in emotions.router GET')
+    // console.log('in emotions.router GET')
     pool.query(queryText)
         .then(result => {
             console.log(result.rows)

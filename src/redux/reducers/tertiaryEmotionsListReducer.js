@@ -1,5 +1,5 @@
 const tertiaryEmotionsListReducer = (state = [], action) => {
-    console.log('in setTertiaryEmotions', action.payload);
+    // console.log('in setTertiaryEmotions', action.payload);
 
     switch (action.type) {
         case 'SET_TERTIARY_EMOTIONS':

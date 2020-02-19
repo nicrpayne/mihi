@@ -1,5 +1,5 @@
 const emotionsListReducer = (state = [], action) => {
-    console.log('in setEmotions', action.payload);
+    // console.log('in setEmotions', action.payload);
 
     switch (action.type) {
         case 'SET_EMOTIONS':

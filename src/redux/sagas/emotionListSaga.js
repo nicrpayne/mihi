@@ -7,14 +7,14 @@ function* emotionListSaga() {
 }
 
 function* fetchEmotions() {
-    console.log('in fetchEmotions');
+    // console.log('in fetchEmotions');
 
     try {
         //makes axios request to server for emotions list
         const response = yield axios.get('/api/emotions');
 
         yield put({ type: 'SET_EMOTIONS', payload: response.data })
-        console.log(response.data);
+        // console.log(response.data);
     } catch (error) {
         console.log('emotions GET request failed', error);
     }

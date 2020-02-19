@@ -7,7 +7,7 @@ function* journalEntriesSaga(){
 }
 
 function* fetchEntries() {
-    console.log('in fetchEntries');
+    // console.log('in fetchEntries');
     
     try {
         //makes axios request to server for journal entries

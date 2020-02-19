@@ -32,7 +32,7 @@ app.use('/api/user', userRouter);
 app.use('/api/entries', entriesRouter);
 app.use('/api/entry', entryRouter);
 app.use('/api/emotions', emotionsRouter);
-app.use('/api/secondaryemotions', secondaryEmotionsRouter)
+app.use('/api/emotions2', secondaryEmotionsRouter)
 app.use('/api/tertiaryemotions', tertiaryEmotionsRouter)
 
 // Serve static files
