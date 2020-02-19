@@ -5,18 +5,19 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
     //variable is equal 
-    let queryText = `SELECT * FROM "tertiary_emotions_list";`;
+    let queryText = `SELECT * FROM "tertiary_emotions_list"
+                        WHERE "secondary_emotion_id"=$1;`;
 
 
-    console.log('in tertiary.emotions.router GET')
-    pool.query(queryText)
+    console.log('in tertiary.emotions.router GET', req.params.id)
+    pool.query(queryText, [req.params.id])
         .then(result => {
             console.log(result.rows)
             res.send(result.rows)
         }).catch(error => {
-            console.log('error in tertiary emotions GET', error)
+            console.log('error in emotions GET', error)
             res.sendStatus(500);
         })
 });

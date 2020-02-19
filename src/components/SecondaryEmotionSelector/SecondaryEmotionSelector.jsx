@@ -22,17 +22,16 @@ class SecondaryEmotionSelector extends Component {
         })
     }
 
-    handleClick = (event) => {
+    handleClick = (id) => {
         // event.preventDefault()
-        
-            this.props.history.push('/emotions3')
-            // this.props.dispatch({
-            //     type: 'FETCH_TERTIARY_EMOTIONS',
-            //     payload: this.state.secondarySelection.emotionId
+        // console.log('primary emotion clicked with id: ', id);
+        this.props.dispatch({
+            type: 'FETCH_TERTIARY_EMOTIONS',
+            payload: id
 
-
-            // })
-        }
+        })
+        this.props.history.push(`/emotions3/${id}`);
+    }
     
 
     render() {

@@ -33,7 +33,7 @@ app.use('/api/entries', entriesRouter);
 app.use('/api/entry', entryRouter);
 app.use('/api/emotions', emotionsRouter);
 app.use('/api/emotions2', secondaryEmotionsRouter)
-app.use('/api/tertiaryemotions', tertiaryEmotionsRouter)
+app.use('/api/emotions3', tertiaryEmotionsRouter)
 
 // Serve static files
 app.use(express.static('build'));

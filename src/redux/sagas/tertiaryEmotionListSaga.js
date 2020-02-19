@@ -6,12 +6,12 @@ function* tertiaryEmotionListSaga() {
     yield takeLatest('FETCH_TERTIARY_EMOTIONS', fetchTertiaryEmotions)
 }
 
-function* fetchTertiaryEmotions() {
-    console.log('in fetchTertiaryEmotions');
+function* fetchTertiaryEmotions(action) {
+    console.log('in fetchTertiaryEmotions', action.payload);
 
     try {
         //makes axios request to server for emotions list
-        const response = yield axios.get('/api/tertiaryemotions');
+        const response = yield axios.get(`/api/emotions3/${action.payload}`);
 
         yield put({ type: 'SET_TERTIARY_EMOTIONS', payload: response.data })
         console.log(response.data);

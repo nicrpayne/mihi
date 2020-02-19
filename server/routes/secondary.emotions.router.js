@@ -11,7 +11,7 @@ router.get('/:id', (req, res) => {
                         WHERE "primary_emotion_id"=$1;`;
 
 
-    console.log('in secondary.emotions.router GET', req.params.id)
+    // console.log('in secondary.emotions.router GET', req.params.id)
     pool.query(queryText, [req.params.id])
         .then(result => {
             console.log(result.rows)

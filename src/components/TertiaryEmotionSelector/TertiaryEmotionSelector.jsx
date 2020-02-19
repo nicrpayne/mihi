@@ -5,13 +5,6 @@ import { connect } from 'react-redux'
 
 class TertiaryEmotionSelector extends Component {
 
-    // componentDidMount() {
-    //     console.log('in TertiaryEmotionSelector - ComponentDidMount');
-
-    //     this.props.dispatch({ type: 'FETCH_TERTIARY_EMOTIONS' })
-    // };
-
-
     state = {
         secondarySelection: {
             emotionId: '',
@@ -29,10 +22,10 @@ class TertiaryEmotionSelector extends Component {
         })
     }
 
-    handleClick = (event) => {
+    handleClick = (id) => {
         // event.preventDefault()
 
-        this.props.history.push('/emotions3')
+        this.props.history.push('/form')
         // this.props.dispatch({
         //     type: 'FETCH_SECONDARY_EMOTIONS',
         //     payload: this.state.secondarySelection
@@ -45,11 +38,11 @@ class TertiaryEmotionSelector extends Component {
     render() {
         return (
             <div>
-                {/* <p>{JSON.stringify(this.props.reduxState.secondaryEmotionsListReducer)}</p> */}
+                {/* <p>{JSON.stringify(this.props.reduxState.tertiaryEmotionsListReducer)}</p> */}
                 <ul>
                     {this.props.reduxState.tertiaryEmotionsListReducer.map(emotion =>
                         <li key={emotion.id}>
-                            <p onClick={this.handleClick} >{emotion.name}</p>
+                            <p onClick={() => this.handleClick(emotion.id)} >{emotion.name}</p>
 
                         </li>
                     )}
