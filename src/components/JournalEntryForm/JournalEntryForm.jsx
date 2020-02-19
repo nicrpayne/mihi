@@ -49,7 +49,7 @@ class JournalEntryForm extends Component {
             </form>
            <>
            <ul>
-               <li>{JSON.stringify(this.props.reduxState.emotionListReducer)}</li>
+                        <li>{JSON.stringify(this.props.reduxState.displayEmotionEntriesReducer )}</li>
            </ul>
            </>
             </div>

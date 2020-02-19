@@ -7,20 +7,29 @@ import { connect } from 'react-redux'
 class PrimaryEmotionSelector extends Component {
 
     componentDidMount() {
-        console.log('in PrimaryEmotionsList - ComponentDidMount');
+        // console.log('in PrimaryEmotionsList - ComponentDidMount');
         
         this.props.dispatch({ type: 'FETCH_PRIMARY_EMOTIONS' })
     };
 
+    // state = {
+    //     feelsOne: ''
+
+    // }
+
     
 
     handleClick = (id) => {
-        // event.preventDefault()
-        // console.log('primary emotion clicked with id: ', id);
+        console.log('primary emotion clicked with id: ', id);
+
         this.props.dispatch({
             type: 'FETCH_SECONDARY_EMOTIONS',
             payload: id
             
+        })
+        this.props.dispatch({
+            type: 'PRIMARY_EMOTION_ENTRY',
+            payload: id
         })
         this.props.history.push(`/emotions2/${id}`);
     }
@@ -34,14 +43,9 @@ class PrimaryEmotionSelector extends Component {
                 <ul>
                   {this.props.reduxState.emotionListReducer.map(emotion =>
                     <li key={emotion.id}>
-                            <p onClick={() => this.handleClick(emotion.id)} >{emotion.name}</p>
-                            {/* <p>{JSON.stringify(emotion.jsonb_agg)}</p> */}
-                            {/* {emotion.jsonb_agg.map(secondaryEmotion =>
-                            <li key={secondaryEmotion.id}>
-                                <p>{secondaryEmotion.secondary_name}</p>
-                                </li>
-                                
-                                )} */}
+                           
+                          <p onClick={() => {this.handleClick(emotion.id)}}>{emotion.name}</p>
+                           
                              
                       </li>
                     )}  

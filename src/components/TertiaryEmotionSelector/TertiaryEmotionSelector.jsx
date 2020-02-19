@@ -5,18 +5,16 @@ import { connect } from 'react-redux'
 
 class TertiaryEmotionSelector extends Component {
 
-
+  
 
     handleClick = (id) => {
-        // event.preventDefault()
+       
+        this.props.dispatch({
+            type: 'TERTIARY_EMOTION_ENTRY',
+            payload: id
+        })
 
-        this.props.history.push('/form')
-        // this.props.dispatch({
-        //     type: 'FETCH_SECONDARY_EMOTIONS',
-        //     payload: this.state.secondarySelection
-
-
-        // })
+        this.props.history.push('/form')   
     }
 
 
@@ -27,7 +25,7 @@ class TertiaryEmotionSelector extends Component {
                 <ul>
                     {this.props.reduxState.tertiaryEmotionsListReducer.map(emotion =>
                         <li key={emotion.id}>
-                            <p onClick={() => this.handleClick(emotion.id)} >{emotion.name}</p>
+                            <p onClick={() => { this.handleClick(emotion.id)}}>{emotion.name}</p>
 
                         </li>
                     )}

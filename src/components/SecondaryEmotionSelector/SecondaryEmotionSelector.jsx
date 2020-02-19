@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 
 class SecondaryEmotionSelector extends Component {
 
-    
+   
 
     handleClick = (id) => {
         // event.preventDefault()
@@ -14,6 +14,10 @@ class SecondaryEmotionSelector extends Component {
             type: 'FETCH_TERTIARY_EMOTIONS',
             payload: id
 
+        })
+        this.props.dispatch({
+            type: 'SECONDARY_EMOTION_ENTRY',
+            payload: id
         })
         this.props.history.push(`/emotions3/${id}`);
     }
@@ -26,7 +30,7 @@ class SecondaryEmotionSelector extends Component {
                 <ul>
                     {this.props.reduxState.secondaryEmotionsListReducer.map(emotion =>
                         <li key={emotion.id}>
-                            <p onClick={() => this.handleClick(emotion.id)} >{emotion.name}</p>
+                            <p onClick={() => { this.handleClick(emotion.id) }}>{emotion.name}</p>
                             
 
                         </li>
