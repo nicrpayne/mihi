@@ -1,6 +1,7 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
 
@@ -8,7 +9,7 @@ const router = express.Router();
  * POST route to journal_entries
  */
 
-    router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
         console.log('in journal entry post router')
         const newEntry = req.body;
         console.log(newEntry)
@@ -29,24 +30,21 @@ const router = express.Router();
             })
     });
 
-// router.delete('/:id/:user_id', rejectUnauthenticated, (req, res) => {
-//     console.log(req.user.id)
-//     const id = req.params.id
-//     const user_id = req.params.user_id
-//     const loggedin_user = req.user.id
-//     console.log('in delete route', id)
-//     if (loggedin_user == user_id) {
-//         const queryText = 'DELETE FROM "item" WHERE "id" = $1'
-//         pool.query(queryText, [id])
-//             .then(() => { res.sendStatus(200) })
-//             .catch((err) => {
-//                 console.log(err)
-//                 res.sendStatus(500)
-//             })
-//     } else {
-//         res.sendStatus(403)
-//     }
-// });
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
+    console.log('in delete route', req.params)
+ 
+    console.log(req.params.id);
+        const queryText = 'DELETE FROM "journal_entries" WHERE "id" = $1'
+      
+        
+        pool.query(queryText, [req.params.id])
+            .then(() => { res.sendStatus(200) })
+            .catch((err) => {
+                console.log(err)
+                res.sendStatus(500)
+            })
+   
+});
 
 
 module.exports = router;

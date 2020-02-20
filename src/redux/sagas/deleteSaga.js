@@ -3,20 +3,19 @@ import { put, takeEvery } from 'redux-saga/effects';
 import { connect } from 'react-redux';
 
 function* deleteSaga() {
-    yield takeEvery('DELETE_BOOK', deleteBooks);
+    yield takeEvery('DELETE_ENTRY', deleteEntry);
 }
 
-function* deleteBooks(action) {
+function* deleteEntry(action) {
     try {
-        console.log(action.payload)
-        let id = action.payload.id
-        let user_id = action.payload.user_id
-        let response = yield axios.delete(`/api/shelf/${id}/${user_id}`);
-        yield put({ type: 'FETCH_BOOKS' })
-        console.log(response.data);
+        console.log('in DELETE_ENTRY saga', action.payload)
+      
+        yield axios.delete(`/api/entry/${action.payload}`);
+        
+        // console.log(response.data);
     }
     catch (error) {
-        console.log('Error getting books', error)
+        console.log('Error deleting', error)
     }
 }
 

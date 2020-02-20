@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import JournalEntryItem from '../JournalEntryItem/JournalEntryItem';
 
 class JournalEntries extends Component {
     // state = {
@@ -13,11 +14,13 @@ componentDidMount() {
 this.props.dispatch ({type: 'FETCH_ENTRIES'})
    
 };
-    // handleInputChangeFor = propertyName => (event) => {
-    //     this.setState({
-    //         [propertyName]: event.target.value,
-    //     });
-    // }
+    handleClick = (entry) => {
+        console.log('getEntryDetails clicked with id: ', entry.id);
+        this.props.dispatch ({type: 'GET_ENTRY_DETAILS',
+                                payload: entry.id
+                                })
+        this.props.history.push(`/journalentry/${entry.id}`);
+    }
 
     render() {
         return (
@@ -27,10 +30,10 @@ this.props.dispatch ({type: 'FETCH_ENTRIES'})
                         <li key={entry.id}>
                             <div>
                                 
-                                <p>{entry.date}, {entry.location}</p>
-                                <p>{entry.primary_emotion_id}</p>
-                                <p>{entry.secondary_emotion_id}</p>
-                                <p>{entry.tertiary_emotion_id}</p>
+                                <p onClick={() => this.handleClick(entry)}>{entry.date}, {entry.location}</p>
+                                <p>{entry.pname}, {entry.sname}, {entry.tname}</p>
+                               
+                               
                                 {/* <p>{entry.journal_text}</p> */}
 
                                

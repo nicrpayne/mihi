@@ -7,6 +7,7 @@ import emotionListReducer from './emotionListReducer'
 import secondaryEmotionsListReducer from './secondaryEmotionsListReducer'
 import tertiaryEmotionsListReducer from './tertiaryEmotionsListReducer'
 import displayEmotionEntriesReducer from './displayEmotionEntriesReducer'
+import setEntryDetailsReducer from './setEntryDetails'
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   emotionListReducer,
   secondaryEmotionsListReducer,
   tertiaryEmotionsListReducer,
-  displayEmotionEntriesReducer 
+  displayEmotionEntriesReducer ,
+  setEntryDetailsReducer
 });
 
 export default rootReducer;

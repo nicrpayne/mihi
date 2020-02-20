@@ -5,8 +5,6 @@ import { connect } from 'react-redux'
 
 class SecondaryEmotionSelector extends Component {
 
-   
-
     handleClick = (emotion) => {
         // event.preventDefault()
         // console.log('primary emotion clicked with id: ', id);

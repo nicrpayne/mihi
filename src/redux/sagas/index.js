@@ -7,6 +7,8 @@ import formSaga from './formSaga'
 import emotionListSaga from './emotionListSaga'
 import secondaryEmotionListSaga from './secondaryEmotionListSaga'
 import tertiaryEmotionListSaga from './tertiaryEmotionListSaga'
+import getEntryDetails from './getEntryDetails'
+import deleteSaga from './deleteSaga'
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -24,6 +26,8 @@ export default function* rootSaga() {
     formSaga(),
     emotionListSaga(),
     secondaryEmotionListSaga(),
-    tertiaryEmotionListSaga()
+    tertiaryEmotionListSaga(),
+    getEntryDetails(),
+    deleteSaga()
   ]);
 }

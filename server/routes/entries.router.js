@@ -1,12 +1,14 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
  * Get all of the journal entries
  */
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     const queryText = `SELECT 
+    "journal_entries".id,
 "journal_entries".date,
 "journal_entries".user_id,
 "journal_entries".location,

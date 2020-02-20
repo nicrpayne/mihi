@@ -22,6 +22,7 @@ import JournalEntryForm from '../JournalEntryForm/JournalEntryForm'
 import PrimaryEmotionSelector from '../PrimaryEmotionSelector/PrimaryEmotionSelector'
 import SecondaryEmotionSelector from '../SecondaryEmotionSelector/SecondaryEmotionSelector'
 import TertiaryEmotionSelector from '../TertiaryEmotionSelector/TertiaryEmotionSelector'
+import JournalEntryItem from '../JournalEntryItem/JournalEntryItem'
 
 import './App.css';
 
@@ -69,6 +70,11 @@ class App extends Component {
               exact
               path="/home"
               component={UserPage}
+            />
+            <ProtectedRoute
+              exact
+              path="/journalentry/:id"
+              component={JournalEntryItem}
             />
             {/* <ProtectedRoute
               exact
