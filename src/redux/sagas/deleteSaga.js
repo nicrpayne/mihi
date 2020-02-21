@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { put, takeEvery } from 'redux-saga/effects';
-import { connect } from 'react-redux';
+import { takeEvery } from 'redux-saga/effects';
+
 
 function* deleteSaga() {
     yield takeEvery('DELETE_ENTRY', deleteEntry);

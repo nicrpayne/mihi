@@ -31,6 +31,7 @@ class JournalEntryForm extends Component {
             type: 'POST_ENTRY',
             payload: this.state.newEntry
         })
+        this.props.history.push(`/entries`);
     }
 
     render() {

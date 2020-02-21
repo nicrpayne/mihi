@@ -47,16 +47,19 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 // Updates selected movie in database
-router.put('/:id', (req, res) => {
+router.put('/:id', rejectUnauthenticated, (req, res) => {
     // console.log('req.body in /edit/id is: ', req.body);
-    const updatedEntry = req.body;
+    const updatedEntry = req.body.journalText;
+    const entryId = req.params.id
 
     const queryText =   `UPDATE "journal_entries"
-                        SET "journal_text" = "$1"
-                        WHERE "id" = ${req.body.id};`;
+                        SET "journal_text" = $1
+                        WHERE "id" = $2;`;
 
     const queryValues = [
-        updatedEntry
+        updatedEntry,
+        entryId
+
     ];
 
     pool.query(queryText, queryValues)

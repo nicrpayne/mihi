@@ -1,11 +1,23 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
+    
 }
 
 .alert {
     background-color: #ff4545;
     margin: 50px;
+}
+
+.image-logo {
+    border-radius: 8px;
+    height: 200; 
+    width: auto;
+}
+
+.page-color{
+    background-color: black;
+
 }
 
 form {
@@ -46,4 +58,84 @@ input {
     outline:0;
     border-bottom:1px solid #444; 
     cursor: pointer;
+}
+.App {
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.MovieList {
+  text-align: center;
+  background-color: black;
+}
+
+.MovieList-Header {
+  font-size: 75px;
+  font-family: 'Bungee Shade', cursive;
+  color: white;
+  margin-top: 0px;
+  padding-top: 30px;
+  padding-bottom: 0px;
+}
+
+.EmotionItem-Card {
+  margin: 10px;
+}
+
+.EmotionItem-Square {
+  border-color: grey;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.EmotionItem-Icon {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.Details-Description {
+  padding: 20px;
+}
+
+.Details-DescriptionContainer {
+  margin: 20px;
+}
+
+.Details-MovieTitle {
+  font-size: 50px;
+  font-family: 'Bungee Shade', cursive;
+  color: black;
+  padding: 0px 20px;
+}
+
+.Details-ImgGenreContainer {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.Details-AppBar {
+  padding: 10px 20px;
+}
+
+.Edit-AppBar {
+  padding: 10px 20px;
+}
+
+.Edit-ImgGenreContainer {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.Edit-Description {
+  width: 60%;
+  height: 300px;
+}
+
+.Edit-FormContainer {
+  margin: 20px;
 }

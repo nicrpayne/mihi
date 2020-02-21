@@ -40,7 +40,13 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
-        <form onSubmit={this.login}>
+        <div className="page-color">
+          <img className="image-logo" src='/images/logo.png'
+          alt="logo"
+          />
+        </div>
+        <form
+        onSubmit={this.login}>
           <h1>Login</h1>
           <div>
             <label htmlFor="username">

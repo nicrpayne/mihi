@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import JournalEntryItem from '../JournalEntryItem/JournalEntryItem';
+
 
 class JournalEntries extends Component {
     // state = {
@@ -38,6 +38,7 @@ this.props.dispatch ({type: 'FETCH_ENTRIES'})
 
                                
                             </div>
+                            
                         </li>
                     )}
                 </ul>
