@@ -23,6 +23,7 @@ import PrimaryEmotionSelector from '../PrimaryEmotionSelector/PrimaryEmotionSele
 import SecondaryEmotionSelector from '../SecondaryEmotionSelector/SecondaryEmotionSelector'
 import TertiaryEmotionSelector from '../TertiaryEmotionSelector/TertiaryEmotionSelector'
 import JournalEntryItem from '../JournalEntryItem/JournalEntryItem'
+import Edit from '../EntryEditForm/EntryEditForm'
 
 import './App.css';
 
@@ -100,8 +101,13 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/info"
+              path="/info/:id"
               component={InfoPage}
+            />
+            <ProtectedRoute
+              exact
+              path="/edit/:id"
+              component={Edit}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />

@@ -17,6 +17,7 @@ const secondaryEmotionsRouter = require('./routes/secondary.emotions.router');
 const tertiaryEmotionsRouter = require('./routes/tertiary.emotions.router');
 const entryDetailsRouter = require('./routes/entry.details.router');
 
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

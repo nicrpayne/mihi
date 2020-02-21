@@ -9,6 +9,7 @@ import secondaryEmotionListSaga from './secondaryEmotionListSaga'
 import tertiaryEmotionListSaga from './tertiaryEmotionListSaga'
 import getEntryDetails from './getEntryDetails'
 import deleteSaga from './deleteSaga'
+import editSaga from './editSaga'
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -28,6 +29,7 @@ export default function* rootSaga() {
     secondaryEmotionListSaga(),
     tertiaryEmotionListSaga(),
     getEntryDetails(),
-    deleteSaga()
+    deleteSaga(),
+    editSaga()
   ]);
 }

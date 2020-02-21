@@ -46,5 +46,26 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
    
 });
 
+// Updates selected movie in database
+router.put('/:id', (req, res) => {
+    // console.log('req.body in /edit/id is: ', req.body);
+    const updatedEntry = req.body;
+
+    const queryText =   `UPDATE "journal_entries"
+                        SET "journal_text" = "$1"
+                        WHERE "id" = ${req.body.id};`;
+
+    const queryValues = [
+        updatedEntry
+    ];
+
+    pool.query(queryText, queryValues)
+        .then(() => { res.sendStatus(200); })
+        .catch((error) => {
+            console.log('Error completing UPDATE movie query', error);
+            res.sendStatus(500);
+        });
+});
+
 
 module.exports = router;
