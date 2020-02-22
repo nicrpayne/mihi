@@ -37,11 +37,20 @@ body {
 
 form {
     background-color: #5ce2ff;
-    width: 30%;
-    height: 250px;
+    width: 200px;
+    height: 120px;
     margin: 20px auto;
     padding: 25px;
-    border-radius: 20px;
+    border-radius: 30px;
+}
+
+.journalEntryForm {
+     background-color: #5ce2ff;
+    width: 500px;
+    height: 350px;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 30px;
 }
 
 input {
@@ -53,11 +62,13 @@ input {
   background-color: white;
   border-radius: 4px;
   color: black;
-  min-height: 50px;
-  min-width: 100px;
+  min-height: 35px;
+  min-width: 75px;
   outline:0;
   cursor: pointer;
   font-size: 14px;
+
+
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
@@ -83,7 +94,6 @@ input {
 
 .emotion-list {
   text-align: center;
-  background-color: black;
 }
 
 .MovieList-Header {
