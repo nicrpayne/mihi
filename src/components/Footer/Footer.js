@@ -10,6 +10,10 @@ const Footer = () => (
   <footer>
     &copy; 2020 mihi
   </footer>
+
+
 );
+
+
 
 export default Footer;

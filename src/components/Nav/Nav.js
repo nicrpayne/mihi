@@ -7,8 +7,15 @@ import './Nav.css';
 const Nav = (props) => (
   <div className="nav">
     <Link to="/home">
+      
       <h2 className="nav-title">mihi</h2>
+      <img 
+      // align="bottom"
+      className="logotwo" src='/images/logo3.png'
+        alt="logo"
+      />
     </Link>
+   
     <div className="nav-right">
       
       <Link className="nav-link" to="/home">
