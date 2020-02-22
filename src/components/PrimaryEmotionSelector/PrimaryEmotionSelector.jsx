@@ -20,8 +20,6 @@ class PrimaryEmotionSelector extends Component {
 
     // }
 
-
-
     render() {
         return (
             <div>

@@ -31,7 +31,7 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="loginPage"> 
         {this.props.errors.loginMessage && (
           <h2
             className="alert"
@@ -40,14 +40,16 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
-        <div className="page-color">
+        <div >
           <img className="image-logo" src='/images/logo.png'
+          width="auto"
           alt="logo"
           />
-        </div>
-        <form
+        </div >
+        <form 
+        className="loginForm"
         onSubmit={this.login}>
-          <h1>Login</h1>
+          <h1 >Login</h1>
           <div>
             <label htmlFor="username">
               Username:
@@ -59,7 +61,7 @@ class LoginPage extends Component {
               />
             </label>
           </div>
-          <div>
+          <div >
             <label htmlFor="password">
               Password:
               <input
@@ -75,7 +77,7 @@ class LoginPage extends Component {
               className="log-in"
               type="submit"
               name="submit"
-              value="Log In"
+              value="Login"
             />
           </div>
         </form>

@@ -51,7 +51,7 @@ class JournalEntryForm extends Component {
                     <input type="submit" onClick={this.handleClick} />
                 </form>
 
-                <ul>
+                <ul className="emotion-list">
                     <li>{this.props.reduxState.displayEmotionEntriesReducer.primary.name}</li>
                     <li>{this.props.reduxState.displayEmotionEntriesReducer.primary.color}</li>
                     <li>{this.props.reduxState.displayEmotionEntriesReducer.secondary.name}</li>

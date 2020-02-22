@@ -1,7 +1,12 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0px;
-    
+    /* background-image: image("logo.png"); */
+}
+
+.body-image{
+    background-color: ;
+
 }
 
 .alert {
@@ -11,8 +16,10 @@ body {
 
 .image-logo {
     border-radius: 8px;
-    height: 200; 
-    width: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 .page-color{
@@ -20,13 +27,21 @@ body {
 
 }
 
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+
 form {
-    background-color: #dbd5d5;
+    background-color: #5ce2ff;
     width: 30%;
     height: 250px;
     margin: 20px auto;
     padding: 25px;
-    border-radius: 2px;
+    border-radius: 20px;
 }
 
 input {
@@ -35,17 +50,18 @@ input {
 }
 
 .log-in, .log-out, .register {
-  background-color: #00acb0;
+  background-color: white;
   border-radius: 4px;
-  color: #f8f8f8;
+  color: black;
   min-height: 50px;
   min-width: 100px;
   outline:0;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: #008183;
+  background-color: #bababa;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
@@ -65,7 +81,7 @@ input {
   overflow: hidden;
 }
 
-.MovieList {
+.emotion-list {
   text-align: center;
   background-color: black;
 }
@@ -138,4 +154,11 @@ input {
 
 .Edit-FormContainer {
   margin: 20px;
+}
+
+.loginPage {
+    background-color: black;
+}
+.loginForm {
+    text-align: center;
 }
