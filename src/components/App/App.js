@@ -42,22 +42,22 @@ class App extends Component {
             <Redirect exact from="/" to="/home" />
             {/* Visiting localhost:3000/about will show the about page.
             This is a route anyone can see, no login necessary */}
-            <Route
+            {/* <Route
               exact
               path="/about"
               component={AboutPage}
-            />
+            /> */}
             <Route
               exact
               path="/register"
               component={RegisterPage}
             />
-            <Route
+            {/* <Route
               exact
               path="/entries"
               component={JournalEntries}
-            />
-            <Route
+            /> */}
+            <ProtectedRoute
               exact
               path="/form"
               component={JournalEntryForm}
@@ -70,7 +70,7 @@ class App extends Component {
             <ProtectedRoute
               exact
               path="/home"
-              component={UserPage}
+              component={JournalEntries}
             />
             <ProtectedRoute
               exact

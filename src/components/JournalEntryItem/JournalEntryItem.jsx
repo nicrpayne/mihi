@@ -22,7 +22,7 @@ class JournalEntryItem extends Component {
 
         })
         
-        this.props.history.push(`/entries`);
+        this.props.history.push(`/home`);
     }
     
     // Dispatch action to get details from server

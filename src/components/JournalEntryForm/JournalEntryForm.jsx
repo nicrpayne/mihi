@@ -32,7 +32,7 @@ class JournalEntryForm extends Component {
             type: 'POST_ENTRY',
             payload: this.state.newEntry
         })
-        this.props.history.push(`/entries`);
+        this.props.history.push(`/home`);
     }
 
     render() {
@@ -52,7 +52,9 @@ class JournalEntryForm extends Component {
                     <input value={this.state.newEntry.location} onChange={(event) => this.handleChangeFor('location', event)} />
                     <br/>
                     <br />
-
+                    <p className="emotion-list">{this.props.reduxState.displayEmotionEntriesReducer.primary.name} | {this.props.reduxState.displayEmotionEntriesReducer.secondary.name} | {this.props.reduxState.displayEmotionEntriesReducer.tertiary.name}</p>
+                    
+                    
                     <label> Add Entry </label>
                     <TextField 
                     multiline
@@ -66,14 +68,7 @@ class JournalEntryForm extends Component {
                     <input type="submit" onClick={this.handleClick} />
                 </form>
 
-                <ul className="emotion-list">
-                    <li>{this.props.reduxState.displayEmotionEntriesReducer.primary.name}</li>
-                    {/* <li>{this.props.reduxState.displayEmotionEntriesReducer.primary.color}</li> */}
-                    <li>{this.props.reduxState.displayEmotionEntriesReducer.secondary.name}</li>
-                    {/* <li>{this.props.reduxState.displayEmotionEntriesReducer.secondary.color}</li> */}
-                    <li>{this.props.reduxState.displayEmotionEntriesReducer.tertiary.name}</li>
-                    {/* <li>{this.props.reduxState.displayEmotionEntriesReducer.tertiary.color}</li> */}
-                </ul>
+                
 
             </div>
         )
