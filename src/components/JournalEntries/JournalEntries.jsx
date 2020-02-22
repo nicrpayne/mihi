@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+const moment = require('moment');
 
 class JournalEntries extends Component {
     // state = {
@@ -10,15 +10,16 @@ class JournalEntries extends Component {
     //     password: '',
     // };
 
-componentDidMount() {
-this.props.dispatch ({type: 'FETCH_ENTRIES'})
-   
-};
+    componentDidMount() {
+        this.props.dispatch({ type: 'FETCH_ENTRIES' })
+
+    };
     handleClick = (entry) => {
         console.log('getEntryDetails clicked with id: ', entry.id);
-        this.props.dispatch ({type: 'GET_ENTRY_DETAILS',
-                                payload: entry.id
-                                })
+        this.props.dispatch({
+            type: 'GET_ENTRY_DETAILS',
+            payload: entry.id
+        })
         this.props.history.push(`/journalentry/${entry.id}`);
     }
 
@@ -29,25 +30,16 @@ this.props.dispatch ({type: 'FETCH_ENTRIES'})
                     {this.props.reduxState.setEntriesReducer.map(entry =>
                         <li key={entry.id}>
                             <div>
-                                
-                                <p onClick={() => this.handleClick(entry)}>{entry.date}, {entry.location}</p>
-                                <p>{entry.pname}, {entry.sname}, {entry.tname}</p>
-                               
-                               
-                                {/* <p>{entry.journal_text}</p> */}
 
-                               
+                                <p onClick={() => this.handleClick(entry)}>{moment(entry.date).format('LL')}, {entry.location}</p>
+                                <p>{entry.pname}, {entry.sname}, {entry.tname}</p>
+
+                                {/* <p>{entry.journal_text}</p> */}
                             </div>
-                            
+
                         </li>
                     )}
                 </ul>
-            <p>
-                {/* {JSON.stringify(this.props.state.setEntriesReducer)} */}
-            </p>
-                <center>
-                    
-                </center>
             </div>
         );
     }
@@ -58,7 +50,7 @@ this.props.dispatch ({type: 'FETCH_ENTRIES'})
 // if you wanted you could write this code like this:
 // const mapStateToProps = ({errors}) => ({ errors });
 const mapStateToProps = reduxState => ({
-   reduxState
+    reduxState
 });
 
 export default connect(mapStateToProps)(JournalEntries);
