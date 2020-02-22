@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 // import { array } from 'prop-types';
+const moment = require('moment');
 
 
 
@@ -39,14 +40,15 @@ class JournalEntryItem extends Component {
         return (
             <div>
                 {/* <p>{JSON.stringify(this.props.reduxState.setEntryDetailsReducer)}</p> */}
-                <ul>
-                    <li>{this.props.reduxState.setEntryDetailsReducer.pname}, {this.props.reduxState.setEntryDetailsReducer.sname}, {this.props.reduxState.setEntryDetailsReducer.tname}</li>
+                
+                    <p>{this.props.reduxState.setEntryDetailsReducer.pname}, {this.props.reduxState.setEntryDetailsReducer.sname}, {this.props.reduxState.setEntryDetailsReducer.tname}</p>
                    <br></br>
-                    <li>{this.props.reduxState.setEntryDetailsReducer.date}, {this.props.reduxState.setEntryDetailsReducer.location}</li>
+                    <p>{moment(this.props.reduxState.setEntryDetailsReducer.date).fromNow()}, {this.props.reduxState.setEntryDetailsReducer.location}</p>
+                    <p>{moment(this.props.reduxState.setEntryDetailsReducer.date).format('LL')}</p>
                     <br></br>
-                    <li>{this.props.reduxState.setEntryDetailsReducer.journal_text}</li>
-                    <li>{this.props.reduxState.setEntryDetailsReducer.id}</li>
-                </ul>
+                    <p>{this.props.reduxState.setEntryDetailsReducer.journal_text}</p>
+                    <p>{this.props.reduxState.setEntryDetailsReducer.id}</p>
+                
                 <button onClick={() => this.handleClick()}>DELETE ENTRY</button>
                 <button onClick={(id) => this.editDetails(this.props.reduxState.setEntryDetailsReducer.id)} >EDIT</button>
              
