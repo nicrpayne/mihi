@@ -13,12 +13,17 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         console.log('in journal entry post router')
         const newEntry = req.body;
         console.log(newEntry)
-        const queryText = `INSERT INTO "journal_entries" ("date", "location", "journal_text")
-                            VALUES ($1, $2, $3);`;
+        const queryText = `INSERT INTO "journal_entries" ("date", "location", "journal_text", 
+                            "primary_emotion_id", 
+                            "secondary_emotion_id", "tertiary_emotion_id")
+                            VALUES ($1, $2, $3, $4, $5, $6);`;
         const queryValues = [
             newEntry.date,
             newEntry.location,
-            newEntry.text
+            newEntry.text,
+            newEntry.primaryId,
+            newEntry.secondaryId,
+            newEntry.tertiaryId
         ];
         pool.query(queryText, queryValues)
             .then(() => {
