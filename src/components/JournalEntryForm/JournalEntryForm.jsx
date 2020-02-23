@@ -12,7 +12,10 @@ class JournalEntryForm extends Component {
         newEntry: {
             date: '',
             location: '',
-            text: ''
+            text: '',
+            primaryId: '',
+            secondaryId: '',
+            tertiaryId: ''
         }
     }
 
@@ -21,7 +24,10 @@ class JournalEntryForm extends Component {
         this.setState({
             newEntry: {
                 ...this.state.newEntry,
-                [propertyName]: event.target.value
+                [propertyName]: event.target.value,
+                primaryId: this.props.reduxState.displayEmotionEntriesReducer.primary.id,
+                secondaryId: this.props.reduxState.displayEmotionEntriesReducer.secondary.id,
+                tertiaryId: this.props.reduxState.displayEmotionEntriesReducer.tertiary.id
             }
         })
     }
