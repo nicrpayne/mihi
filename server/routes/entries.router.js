@@ -25,7 +25,8 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 FROM "journal_entries"
 JOIN "primary_emotions_list" ON "primary_emotions_list".id = "journal_entries".primary_emotion_id
 JOIN "secondary_emotions_list" ON "secondary_emotions_list".id = "journal_entries".secondary_emotion_id
-JOIN "tertiary_emotions_list" ON "tertiary_emotions_list".id = "journal_entries".tertiary_emotion_id;`;
+JOIN "tertiary_emotions_list" ON "tertiary_emotions_list".id = "journal_entries".tertiary_emotion_id
+ORDER BY "date" DESC;`;
     console.log('in entries.router GET')
     pool.query(queryText)
         .then(result => {

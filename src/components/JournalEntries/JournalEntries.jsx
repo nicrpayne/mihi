@@ -1,6 +1,8 @@
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 const moment = require('moment');
+
 
 class JournalEntries extends Component {
     // state = {
@@ -25,7 +27,10 @@ class JournalEntries extends Component {
 
     render() {
         return (
-            <div>
+        
+            
+            
+            <div >
                 <ul>
                     {this.props.reduxState.setEntriesReducer.map(entry =>
                         <li key={entry.id}>
@@ -41,6 +46,8 @@ class JournalEntries extends Component {
                     )}
                 </ul>
             </div>
+       
+
         );
     }
 }
