@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import {connect} from 'react-redux';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';

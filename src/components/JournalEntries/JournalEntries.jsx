@@ -27,11 +27,10 @@ class JournalEntries extends Component {
 
     render() {
         return (
-        
-            
-            
             <div >
-                <ul>
+                <ul 
+                id="myUL"
+                >
                     {this.props.reduxState.setEntriesReducer.map(entry =>
                         <li key={entry.id}>
                             <div>
