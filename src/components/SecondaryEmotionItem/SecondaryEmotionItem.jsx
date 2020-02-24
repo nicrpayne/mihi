@@ -8,8 +8,8 @@ import IconButton from '@material-ui/core/IconButton';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-class PrimaryEmotionItem extends Component {
-  
+class SecondaryEmotionItem extends Component {
+
     // infoClick = (id) => {
     //     console.log('info icon clicked with id: ', id);
     //     this.props.dispatch({
@@ -22,28 +22,28 @@ class PrimaryEmotionItem extends Component {
         // console.log('primary emotion clicked with id: ', emotion);
 
         this.props.dispatch({
-            type: 'FETCH_SECONDARY_EMOTIONS',
+            type: 'FETCH_TERTIARY_EMOTIONS',
             payload: emotion.id
 
         })
         this.props.dispatch({
-            type: 'PRIMARY_EMOTION_ENTRY',
+            type: 'SECONDARY_EMOTION_ENTRY',
             payload: emotion
         })
-        this.props.history.push(`/emotions2/${emotion.id}`);
+        this.props.history.push(`/emotions3/${emotion.id}`);
     }
     render() {
-        // Define "emotion" as param passed from PrimaryEmotionSelector
+        // Define "emotion" as param passed from SecondaryEmotionSelector
         let emotion = this.props.emotion;
 
         return (
             <Grid key={emotion.id} className="EmotionItem-Card">
                 <Card id={emotion.id} key={emotion.id} >
                     <CardContent >
-                       
+
                         <div className="EmotionItem-Icon">
                             <CardActions>
-                                <IconButton onClick={() => { this.handleClick(emotion) }} aria-label={emotion.name}> 
+                                <IconButton onClick={() => { this.handleClick(emotion) }} aria-label={emotion.name}>
                                     {emotion.name}
                                 </IconButton>
                             </CardActions>
@@ -59,4 +59,4 @@ const mapReduxStateToProps = (reduxState) => {
     return reduxState
 }
 
-export default withRouter(connect(mapReduxStateToProps)(PrimaryEmotionItem));
+export default withRouter(connect(mapReduxStateToProps)(SecondaryEmotionItem));

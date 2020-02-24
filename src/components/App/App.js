@@ -14,8 +14,8 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 
-import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
+// import AboutPage from '../AboutPage/AboutPage';
+// import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import RegisterPage from '../RegisterPage/RegisterPage'
 import JournalEntries from '../JournalEntries/JournalEntries'

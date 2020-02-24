@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
@@ -9,7 +10,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 class PrimaryEmotionItem extends Component {
-  
+
     // infoClick = (id) => {
     //     console.log('info icon clicked with id: ', id);
     //     this.props.dispatch({
@@ -40,10 +41,10 @@ class PrimaryEmotionItem extends Component {
             <Grid key={emotion.id} className="EmotionItem-Card">
                 <Card id={emotion.id} key={emotion.id} >
                     <CardContent >
-                       
+
                         <div className="EmotionItem-Icon">
                             <CardActions>
-                                <IconButton onClick={() => { this.handleClick(emotion) }} aria-label={emotion.name}> 
+                                <IconButton onClick={() => { this.handleClick(emotion) }} aria-label={emotion.name}>
                                     {emotion.name}
                                 </IconButton>
                             </CardActions>
