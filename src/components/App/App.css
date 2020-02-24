@@ -90,8 +90,17 @@ input {
   overflow: hidden;
 }
 
+.textField {
+    background-color: 'white';
+}
+
+.submit-button{
+    font-family: 'Offside';
+}
+
 .emotion-list {
   text-align: center;
+  font-family: 'Offside';
 }
 
 .EmotionItem-Card {

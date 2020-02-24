@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
@@ -9,7 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-class PrimaryEmotionItem extends Component {
+class TertiaryEmotionItem extends Component {
 
     // infoClick = (id) => {
     //     console.log('info icon clicked with id: ', id);
@@ -20,21 +19,16 @@ class PrimaryEmotionItem extends Component {
     //     this.props.history.push(`/details/${id}`);
     // }
     handleClick = (emotion) => {
-        // console.log('primary emotion clicked with id: ', emotion);
 
         this.props.dispatch({
-            type: 'FETCH_SECONDARY_EMOTIONS',
-            payload: emotion.id
-
-        })
-        this.props.dispatch({
-            type: 'PRIMARY_EMOTION_ENTRY',
+            type: 'TERTIARY_EMOTION_ENTRY',
             payload: emotion
         })
-        this.props.history.push(`/emotions2/${emotion.id}`);
+
+        this.props.history.push('/form')
     }
     render() {
-        // Define "emotion" as param passed from PrimaryEmotionSelector
+        // Define "emotion" as param passed from SecondaryEmotionSelector
         let emotion = this.props.emotion;
 
         return (
@@ -60,4 +54,4 @@ const mapReduxStateToProps = (reduxState) => {
     return reduxState
 }
 
-export default withRouter(connect(mapReduxStateToProps)(PrimaryEmotionItem));
+export default withRouter(connect(mapReduxStateToProps)(TertiaryEmotionItem));

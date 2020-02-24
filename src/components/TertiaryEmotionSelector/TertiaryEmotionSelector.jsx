@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import Grid from '@material-ui/core/Grid';
+import TertiaryEmotionItem from '../TertiaryEmotionItem/TertiaryEmotionItem'
 
 
 
@@ -7,30 +9,31 @@ class TertiaryEmotionSelector extends Component {
 
   
 
-    handleClick = (emotion) => {
+    // handleClick = (emotion) => {
        
-        this.props.dispatch({
-            type: 'TERTIARY_EMOTION_ENTRY',
-            payload: emotion
-        })
+    //     this.props.dispatch({
+    //         type: 'TERTIARY_EMOTION_ENTRY',
+    //         payload: emotion
+    //     })
 
-        this.props.history.push('/form')   
-    }
+    //     this.props.history.push('/form')   
+    // }
 
 
     render() {
         return (
             <div>
-                {/* <p>{JSON.stringify(this.props.reduxState.tertiaryEmotionsListReducer)}</p> */}
-                <ul>
+                <h1 className="EmotionList-Header">just a little more</h1>
+                <Grid
+                    className="grid"
+                    container direction="row"
+                    justify="flex-start"
+                    alignItems="flex-start">
+
                     {this.props.reduxState.tertiaryEmotionsListReducer.map(emotion =>
-                        <li key={emotion.id}>
-                            <p onClick={() => { this.handleClick(emotion)}}>{emotion.name}</p>
-
-                        </li>
+                        <TertiaryEmotionItem key={emotion.id} emotion={emotion} />
                     )}
-                </ul>
-
+                </Grid>
             </div>
         )
     }

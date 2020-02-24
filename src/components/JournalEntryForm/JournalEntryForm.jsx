@@ -49,20 +49,26 @@ class JournalEntryForm extends Component {
                 <form 
                 className="journalEntryForm"
                 onSubmit={this.handleClick}>
-                    <label> Date </label>
-                    <input value={this.state.newEntry.date} onChange={(event) => this.handleChangeFor('date', event)} />
+                    {/* <label> Date </label> */}
+                    <input 
+                    placeholder = 'Date'
+                    value={this.state.newEntry.date} onChange={(event) => this.handleChangeFor('date', event)} />
                     <br />
                     <br />
 
-                    <label> Location </label>
-                    <input value={this.state.newEntry.location} onChange={(event) => this.handleChangeFor('location', event)} />
+                    {/* <label> Location </label> */}
+                    <input 
+                    placeholder = 'Location'
+                    value={this.state.newEntry.location} onChange={(event) => this.handleChangeFor('location', event)} />
                     <br/>
                     <br />
                     <p className="emotion-list">{this.props.reduxState.displayEmotionEntriesReducer.primary.name} | {this.props.reduxState.displayEmotionEntriesReducer.secondary.name} | {this.props.reduxState.displayEmotionEntriesReducer.tertiary.name}</p>
                     
                     
-                    <label> Add Entry </label>
+                    {/* <label> Add Entry </label> */}
                     <TextField 
+                    className='textField'
+                    placeholder = 'Your thoughts here...'
                     multiline
                     rows='8'
                     margin='dense'
@@ -71,7 +77,9 @@ class JournalEntryForm extends Component {
                     value={this.state.newEntry.text} 
                     onChange={(event) => this.handleChangeFor('text', event)} />
                     <br />
-                    <input type="submit" onClick={this.handleClick} />
+                    <button className='submit-button'
+                        onClick={this.handleClick}>
+                    Submit </button> 
                 </form>
 
                 

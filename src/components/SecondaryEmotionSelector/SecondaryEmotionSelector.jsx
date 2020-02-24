@@ -33,16 +33,10 @@ class SecondaryEmotionSelector extends Component {
                     container direction="row"
                     justify="flex-start"
                     alignItems="flex-start">
-                {/* <p>{JSON.stringify(this.props.reduxState.secondaryEmotionsListReducer)}</p> */}
-                <ul>
-                    {this.props.reduxState.secondaryEmotionsListReducer.map(emotion =>
-                        <li key={emotion.id}>
-                            {/* <p onClick={() => { this.handleClick(emotion) }}>{emotion.name}</p> */}
-                            <SecondaryEmotionItem key={emotion.id} emotion={emotion} />
 
-                        </li>
+                    {this.props.reduxState.secondaryEmotionsListReducer.map(emotion =>
+                        <SecondaryEmotionItem key={emotion.id} emotion={emotion} />
                     )}
-                </ul>
                 </Grid>
             </div>
         )
