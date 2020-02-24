@@ -89,6 +89,14 @@ class JournalEntryForm extends Component {
                     emotion?</p>
                  
                 </div>
+                {/* <div className="sidenavtoo">
+                    <a href="#about">question:</a>
+                    <p className="maintoo">where in your body
+                    do you feel your
+                    primary selected
+                    emotion?</p>
+
+                </div> */}
                 
 
             </div>

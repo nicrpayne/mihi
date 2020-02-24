@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import SecondaryEmotionItem from '../SecondaryEmotionItem/SecondaryEmotionItem'
+import HorizontalNonLinearAlternativeLabelStepper from '../Stepper/Stepper'
 
 
 
@@ -27,6 +28,7 @@ class SecondaryEmotionSelector extends Component {
     render() {
         return (
             <div>
+                {/* <HorizontalNonLinearAlternativeLabelStepper/> */}
                 <h1 className="EmotionList-Header">dig a little</h1>
                 <Grid
                     className="grid"

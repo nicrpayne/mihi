@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = theme => ({
     root: {
-        width: '90%',
+        width: '100%',
     },
     button: {
         marginRight: theme.spacing.unit,
@@ -27,17 +27,17 @@ const styles = theme => ({
 });
 
 function getSteps() {
-    return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+    return ['Select primary emotion', 'Select a second emotion', 'Pick a third emotion'];
 }
 
 function getStepContent(step) {
     switch (step) {
         case 0:
-            return 'Step 1: Select campaign settings...';
+            return 'Step 1: Primary Emotions';
         case 1:
-            return 'Step 2: What is an ad group anyways?';
+            return 'Step 2: dig a little';
         case 2:
-            return 'Step 3: This is the bit I really care about!';
+            return 'Step 3: just a little more...';
         default:
             return 'Unknown step';
     }
@@ -115,6 +115,7 @@ class HorizontalNonLinearAlternativeLabelStepper extends React.Component {
          */
         if (completed.size !== this.totalSteps() - this.skippedSteps()) {
             this.handleNext();
+           
         }
     };
 
@@ -162,7 +163,7 @@ class HorizontalNonLinearAlternativeLabelStepper extends React.Component {
                         const props = {};
                         const buttonProps = {};
                         if (this.isStepOptional(index)) {
-                            buttonProps.optional = <Typography variant="caption">Optional</Typography>;
+                            // buttonProps.optional = <Typography variant="caption">Optional</Typography>;
                         }
                         if (this.isStepSkipped(index)) {
                             props.completed = false;
