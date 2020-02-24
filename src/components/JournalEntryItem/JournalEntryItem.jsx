@@ -44,11 +44,16 @@ class JournalEntryItem extends Component {
                 </div>
                 <p className="journalFeels"><b>{this.props.reduxState.setEntryDetailsReducer.pname}, {this.props.reduxState.setEntryDetailsReducer.sname}, {this.props.reduxState.setEntryDetailsReducer.tname}</b></p>
                 <br></br>
-                <h4>Thoughts:</h4>
+                <h4 className="journalFeels">Thoughts:</h4>
                 <p className="journalEntry">{this.props.reduxState.setEntryDetailsReducer.journal_text}</p>
-                <button onClick={() => this.handleClick()}>DELETE ENTRY</button>
-                <button onClick={(id) => this.editDetails(this.props.reduxState.setEntryDetailsReducer.id)} >EDIT</button>
-
+                <button 
+                className="delete-btn"
+                onClick={() => this.handleClick()}>DELETE ENTRY</button>
+                <button 
+                // style={"float: right"} 
+                className="edit-btn"
+                onClick={(id) => this.editDetails(this.props.reduxState.setEntryDetailsReducer.id)} >EDIT</button>
+                
             </div>
         )
     }

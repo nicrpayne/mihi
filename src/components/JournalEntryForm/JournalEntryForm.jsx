@@ -81,7 +81,14 @@ class JournalEntryForm extends Component {
                         onClick={this.handleClick}>
                     Submit </button> 
                 </form>
-
+                <div className="sidenav">
+                    <a href="#about">question:</a>
+                    <p className="main">where in your body
+                    do you feel your
+                    primary selected
+                    emotion?</p>
+                 
+                </div>
                 
 
             </div>
